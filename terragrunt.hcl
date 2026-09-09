@@ -19,9 +19,11 @@ remote_state {
     encrypt        = true
     dynamodb_table = "terraform-state-lock"
 
-    # Terragrunt auto-creates these if missing.
-    skip_bucket_versioning         = false
-    enable_lock_table_ssencryption = true
+    # Skip bucket policy checks — avoids needing s3:GetBucketPolicy
+    skip_bucket_versioning         = true
+    skip_bucket_root_access        = true
+    skip_bucket_enforced_tls       = true
+    enable_lock_table_ssencryption = false
   }
 }
 

@@ -21,8 +21,9 @@ remote_state {
 
     # Skip bucket policy checks — avoids needing s3:GetBucketPolicy
     skip_bucket_versioning         = true
-    skip_bucket_root_access        = true
-    skip_bucket_enforced_tls       = true
+    skip_bucket_root_access              = true
+    skip_bucket_enforced_tls             = true
+    skip_bucket_public_access_blocking   = true
     enable_lock_table_ssencryption = false
   }
 }

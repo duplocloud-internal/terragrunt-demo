@@ -13,7 +13,7 @@ remote_state {
     if_exists = "overwrite"
   }
   config = {
-    bucket         = "duplo-tfstate-${local.account_id}"
+    bucket         = "terragrunt-demo-tfstate-${local.account_id}"
     key            = "${path_relative_to_include()}/terraform.tfstate"
     region         = local.region
     encrypt        = true

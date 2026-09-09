@@ -3,7 +3,7 @@
 
 locals {
   account_id = get_aws_account_id()
-  region     = get_env("AWS_DEFAULT_REGION", "us-east-2")
+  region     = get_env("AWS_DEFAULT_REGION", "us-west-2")
 }
 
 remote_state {
@@ -13,7 +13,7 @@ remote_state {
     if_exists = "overwrite"
   }
   config = {
-    bucket         = "terragrunt-demo-tfstate-${local.account_id}"
+    bucket         = "duplo-tfstate-${local.account_id}"
     key            = "${path_relative_to_include()}/terraform.tfstate"
     region         = local.region
     encrypt        = true

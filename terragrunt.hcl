@@ -2,8 +2,7 @@
 # Terragrunt auto-creates the S3 bucket and DynamoDB table on first run.
 
 locals {
-  account_id = get_aws_account_id()
-  region     = get_env("AWS_DEFAULT_REGION", "us-west-2")
+  region = "us-east-2"
 }
 
 remote_state {
@@ -13,7 +12,7 @@ remote_state {
     if_exists = "overwrite"
   }
   config = {
-    bucket         = "duplo-tfstate-${local.account_id}"
+    bucket         = "terragrunt-arine-tfstate"
     key            = "${path_relative_to_include()}/terraform.tfstate"
     region         = local.region
     encrypt        = true
